@@ -45,13 +45,15 @@
                     } else {
                         new_string += '"[/color]';
                     }
-                } else if (string_char = thought_marks) {
+                } else if (string_char = thought_marks && !inside_speech) {
                     inside_thought = !inside_thought;
                     if (inside_thought) {
                         new_string += '[color=' + text_color + '][i]'
                     } else {
                         new_string += '[/i][color=' + text_color + ']'
                     }
+                } else {
+                    new_string += string_char
                 }
             }
 
