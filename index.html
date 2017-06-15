@@ -27,9 +27,9 @@
                 speech_marks = $('#speech_marks').val(),
                 thought_marks = $('#thought_marks').val();
 
-            if (text_color = '') {text_color = '#0080CC'}
-            if (speech_marks = '') {speech_marks = '"'}
-            if (thought_marks = '') {thought_marks = '\''}
+            if (text_color === '') {text_color = '#0080CC'}
+            if (speech_marks === '') {speech_marks = '"'}
+            if (thought_marks === '') {thought_marks = '\''}
 
             var raw_string = $('#text_input').val(),
                 new_string = '';
@@ -38,14 +38,14 @@
             for (var i=0, len = raw_string.length; i < len; i++) {
                 var string_char = raw_string[i];
 
-                if (string_char = speech_marks) {
+                if (string_char === speech_marks) {
                     inside_speech = !inside_speech;
                     if (inside_speech) {
                         new_string += '[color=' + text_color + ']"';
                     } else {
                         new_string += '"[/color]';
                     }
-                } else if (string_char = thought_marks && !inside_speech) {
+                } else if (string_char === thought_marks && !inside_speech) {
                     inside_thought = !inside_thought;
                     if (inside_thought) {
                         new_string += '[color=' + text_color + '][i]'
