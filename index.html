@@ -23,15 +23,15 @@
         $(document).on('click', '#get_text', function (e) {
             var inside_speech = false,
                 inside_thought = false,
-                text_color = $('#text_color').text(),
-                speech_marks = $('#speech_marks').text(),
-                thought_marks = $('#thought_marks').text();
+                text_color = $('#text_color').val(),
+                speech_marks = $('#speech_marks').val(),
+                thought_marks = $('#thought_marks').val();
 
             if (text_color = '') {text_color = '#0080CC'}
             if (speech_marks = '') {speech_marks = '"'}
             if (thought_marks = '') {thought_marks = '\''}
 
-            var raw_string = $('#text_input').text(),
+            var raw_string = $('#text_input').val(),
                 new_string = '';
 
 
