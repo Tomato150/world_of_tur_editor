@@ -11,7 +11,7 @@
     <textarea id="text_input" title="UpperText" type="text" cols="40" rows="5"></textarea>
     <input type="text" id="text_color" placeholder="Color for thought/speech (#0080CC default)">
     <input type="text" id="speech_marks" placeholder="Speech marks (&quot; default)">
-    <input type="text" id="thought_marks" placeholder="Thought markers (' default)">
+    <input type="text" id="thought_marks" placeholder="Thought markers (; default)">
     <button id="get_text">Get the text</button>
     <textarea id="text_output" title="LowerText" type="text" cols="40" rows="5"></textarea>
 
@@ -29,7 +29,7 @@
 
             if (text_color === '') {text_color = '#0080CC'}
             if (speech_marks === '') {speech_marks = '"'}
-            if (thought_marks === '') {thought_marks = '\''}
+            if (thought_marks === '') {thought_marks = '\;'}
 
             var raw_string = $('#text_input').val(),
                 new_string = '';
