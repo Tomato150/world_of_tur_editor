@@ -33,7 +33,7 @@
                         <label for="thought_marks">Thought marks</label>
                         <input id="thought_marks" class="form-control" placeholder=";">
                     </div>
-                    <button class="btn btn-primary" id="get_text" type="button">Get Text and Copy</button>
+                    <button class="btn btn-primary" id="get_text" type="button" data-clipboard-target="#text_output">Get Text and Copy</button>
                     <div class="form-group">
                         <label for="text_output">Output text</label>
                         <textarea class="form-control" id="text_output"></textarea>
@@ -45,6 +45,7 @@
     </div>
 
     <!-- jQuery -->
+    <script src="static/js/clipboard.min.js"></script>
     <script src="static/js/jquery-2.2.1.min.js"></script>
 
 
