@@ -51,6 +51,7 @@
 
     <script>
         $(document).on('click', '#get_text', function (e) {
+            new Clipboard('.btn');
             var inside_speech = false,
                 inside_thought = false,
                 text_color = $('#text_color').val(),
