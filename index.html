@@ -15,32 +15,37 @@
                 <h1>The World of Tur editor</h1>
 
                 <h2>Input a big slab of RP text, and have it automatically formatted.</h2>
-                <div class="row">
-                    <textarea class="form-control" style="width: 718px;" id="text_input" title="UpperText" type="text" cols="40" rows="5"></textarea>
-                    <div class="col-lg-4">
-                        <input class="form-control" type="text" id="text_color" placeholder="Color for thought/speech (#0080CC default)">
-                    </div>
-                    <div class="col-lg-4">
-                        <input class="form-control" type="text" id="speech_marks" placeholder="Speech marks (&quot; default)">
-                    </div>
-                    <div class="col-lg-4">
-                        <input class="form-control" type="text" id="thought_marks" placeholder="Thought markers (; default)">
-                    </div>
-                    <div class="col-lg-12">
-                        <button class="btn btn-primary" id="get_text">Get the text</button>
-                    </div>
-                    <div class="col-lg-12">
-                        <textarea class="form-control" style="font-size: 13px; width: 718px;" id="text_output" title="LowerText" type="text" cols="40" rows="5"></textarea>
-                    </div>
 
+                <form>
+                    <div class="form-group">
+                        <label for="text_input">Input RP post, raw.</label>
+                        <textarea class="form-control" id="text_input"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="text_color">Text Color</label>
+                        <input id="text_color" class="form-group" placeholder="#0080CC">
+                    </div>
+                    <div class="form-group">
+                        <label for="speech_marks">Speech marks</label>
+                        <input id="speech_marks" class="form-group" placeholder='"'>
+                    </div>
+                    <div class="form-group">
+                        <label for="thought_marks">Thought marks</label>
+                        <input id="thought_marks" class="form-group" placeholder=";">
+                    </div>
+                    <button class="btn btn-primary" id="get_text">Get Text and Copy</button>
+                    <div class="form-group">
+                        <label for="text_output">Output text</label>
+                        <textarea class="form-control" id="text_output"></textarea>
+                    </div>
+                </form>
 
-                </div>
             </div>
         </div>
     </div>
 
     <!-- jQuery -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="static/js/jquery-2.2.1.min.js"></script>
 
 
     <script>
