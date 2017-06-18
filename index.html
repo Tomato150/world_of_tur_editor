@@ -49,9 +49,11 @@
     <script src="static/js/jquery-2.2.1.min.js"></script>
 
 
-    <script>
+</body>
+<script>
+    $(document).ready( function (e) {
+        new Clipboard('.btn');
         $(document).on('click', '#get_text', function (e) {
-            new Clipboard('.btn');
             var inside_speech = false,
                 inside_thought = false,
                 text_color = $('#text_color').val(),
@@ -88,8 +90,8 @@
                 }
             }
 
-            $('#text_output').val(new_string)
+            $('#text_output').val(new_string);
         })
-    </script>
-</body>
+    });
+</script>
 </html>
