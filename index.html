@@ -10,88 +10,192 @@
 <body>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>The World of Tur editor</h1>
+        <h1>The World of Tur editor</h1>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#rp_post" role="tab">RP Post</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#manager" role="tab">Manager</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#char_profile" role="tab">Character Profile</a>
+            </li>
+        </ul>
 
-                <h2>Input a big slab of RP text, and have it automatically formatted.</h2>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="rp_post" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 style="margin-top: 8px;">Input a big slab of RP text, and have it automatically formatted
+                            .</h3>
 
-                <form>
-                    <div class="form-group">
-                        <label for="text_input">Input RP post, raw.</label>
-                        <textarea class="form-control" id="text_input"></textarea>
+                        <form>
+                            <div class="form-group">
+                                <label for="text_input">Input RP post, raw.</label>
+                                <textarea class="form-control" id="text_input"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="text_color">Text Color</label>
+                                <input id="text_color" class="form-control" placeholder="#0080CC">
+                            </div>
+                            <div class="form-group">
+                                <label for="speech_marks">Speech marks</label>
+                                <input id="speech_marks" class="form-control" placeholder='"'>
+                            </div>
+                            <div class="form-group">
+                                <label for="thought_marks">Thought marks</label>
+                                <input id="thought_marks" class="form-control" placeholder=";">
+                            </div>
+                            <button class="btn btn-primary" id="get_text" type="button" data-clipboard-target="#text_output">Get Text and Copy</button>
+                            <div class="form-group">
+                                <label for="text_output">Output text</label>
+                                <textarea class="form-control" id="text_output"></textarea>
+                            </div>
+                        </form>
+
                     </div>
-                    <div class="form-group">
-                        <label for="text_color">Text Color</label>
-                        <input id="text_color" class="form-control" placeholder="#0080CC">
+                </div>
+            </div>
+            <div class="tab-pane" id="manager" role="tabpanel">
+                <h2>A WIP</h2>
+            </div>
+            <div class="tab-pane" id="char_profile" role="tabpanel">
+                <div class="row">
+                    <div class="col-xl-4">
+                        <form style="margin-top: 8px;">
+                            <div class="form-group row">
+                                <label for="cp_heading" class="col-xl-4 col-form-label">Heading (Character
+                                    Name)</label>
+                                <div class="col-xl-8">
+                                    <input id="cp_heading" class="form-control" placeholder="Character Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cp_update_color" class="col-xl-4 col-form-label">Update Color (Hex)</label>
+                                <div class="col-xl-8">
+                                    <input id="cp_update_color" class="form-control" placeholder="#800040">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-4 col-form-label"></label>
+                                <div class="col-xl-8">
+                                    <input class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cp_filler" class="col-xl-4 col-form-label">Filler</label>
+                                <div class="col-xl-8">
+                                    <input id="cp_filler" class="form-control" placeholder="Filler">
+                                </div>
+                            </div>
+                            <button id="get_char_profile" class="btn btn-primary" type="button">Get character profile</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="speech_marks">Speech marks</label>
-                        <input id="speech_marks" class="form-control" placeholder='"'>
-                    </div>
-                    <div class="form-group">
-                        <label for="thought_marks">Thought marks</label>
-                        <input id="thought_marks" class="form-control" placeholder=";">
-                    </div>
-                    <button class="btn btn-primary" id="get_text" type="button" data-clipboard-target="#text_output">Get Text and Copy</button>
-                    <div class="form-group">
-                        <label for="text_output">Output text</label>
-                        <textarea class="form-control" id="text_output"></textarea>
-                    </div>
-                </form>
+                </div>
 
             </div>
         </div>
     </div>
 
-    <!-- jQuery -->
     <script src="static/js/clipboard.min.js"></script>
+    <!-- jQuery and Tether(necessary for Bootstrap's JavaScript plugins) -->
     <script src="static/js/jquery-2.2.1.min.js"></script>
+    <script src="static/js/tether/js/tether.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Jquery Validate Library -->
+    <script src="static/js/dragscroll/dragscroll.js"></script>
+    <script src="static/js/jsrender.min.js"></script>
+
+    <!-- Needs player_url, player_name, main_colour_code, main_colour_code_name, character_name-->
+    <script id="character-profile-template" type="text/x-jsrender">
+[richbox][googlefont=Belgrano][center][size=200]{{:character_name}}[/size]
+a player character created by [url={{:player_url}}]{{:player_name}}[/url]
+updates in [color={{:main_colour_code}}]{{:main_colour_code_name}}[/color][/googlefont][/center]
+
+{{:character_information}}
+
+{{:character_lifestyle}}
+
+{{:character_skills_and_abilities}}
+
+{{:character_traits}}
+
+{{:character_personality}}
+
+{{:character_physiology}}
+
+{{:character_background}}
+
+[center][boxhead]Out of Character[/boxhead][/center]
+[box][block][label][color={{:main_colour_code}}][u]Player:[/u][/color][/label][url={{:player_url}}]{{:player_name}}[/url][/block][/box][/richbox]
+    </script>
+
+    <script>
+        $(document).ready( function (e) {
+            new Clipboard('.btn');
+
+            var char_profile_template = $.templates('#character-profile-template');
+            $(document).on('click', '#get_text', function (e) {
+                var inside_speech = false,
+                    inside_thought = false,
+                    text_color = $('#text_color').val(),
+                    speech_marks = $('#speech_marks').val(),
+                    thought_marks = $('#thought_marks').val();
+
+                if (text_color === '') {text_color = '#0080CC'}
+                if (speech_marks === '') {speech_marks = '"'}
+                if (thought_marks === '') {thought_marks = ';'}
+
+                var raw_string = $('#text_input').val(),
+                    new_string = '';
 
 
-</body>
-<script>
-    $(document).ready( function (e) {
-        new Clipboard('.btn');
-        $(document).on('click', '#get_text', function (e) {
-            var inside_speech = false,
-                inside_thought = false,
-                text_color = $('#text_color').val(),
-                speech_marks = $('#speech_marks').val(),
-                thought_marks = $('#thought_marks').val();
+                for (var i=0, len = raw_string.length; i < len; i++) {
+                    var string_char = raw_string[i];
 
-            if (text_color === '') {text_color = '#0080CC'}
-            if (speech_marks === '') {speech_marks = '"'}
-            if (thought_marks === '') {thought_marks = ';'}
-
-            var raw_string = $('#text_input').val(),
-                new_string = '';
-
-
-            for (var i=0, len = raw_string.length; i < len; i++) {
-                var string_char = raw_string[i];
-
-                if (string_char === speech_marks) {
-                    inside_speech = !inside_speech;
-                    if (inside_speech) {
-                        new_string += '[color=' + text_color + ']"';
+                    if (string_char === speech_marks) {
+                        inside_speech = !inside_speech;
+                        if (inside_speech) {
+                            new_string += '[color=' + text_color + ']"';
+                        } else {
+                            new_string += '"[/color]';
+                        }
+                    } else if (string_char === thought_marks && !inside_speech) {
+                        inside_thought = !inside_thought;
+                        if (inside_thought) {
+                            new_string += '[color=' + text_color + '][i]'
+                        } else {
+                            new_string += '[/i][/color]'
+                        }
                     } else {
-                        new_string += '"[/color]';
+                        new_string += string_char
                     }
-                } else if (string_char === thought_marks && !inside_speech) {
-                    inside_thought = !inside_thought;
-                    if (inside_thought) {
-                        new_string += '[color=' + text_color + '][i]'
-                    } else {
-                        new_string += '[/i][/color]'
-                    }
-                } else {
-                    new_string += string_char
                 }
-            }
 
-            $('#text_output').val(new_string);
-        })
-    });
-</script>
+                $('#text_output').val(new_string);
+            });
+
+            $(document).on('click', '#get_char_profile', function (e) {
+                var text = char_profile_template.render({
+                    character_information: '',
+                    character_lifestyle: '',
+                    character_skills_and_abilities: '',
+                    character_traits: '',
+                    character_personality: '',
+                    character_physiology: '',
+                    character_background: ''
+                });
+                console.log(text)
+            })
+        });
+    </script>
+</body>
 </html>
