@@ -61,42 +61,431 @@
             <div class="tab-pane" id="manager" role="tabpanel">
                 <h2>A WIP</h2>
             </div>
-            <div class="tab-pane" id="char_profile" role="tabpanel">
-                <div class="row">
-                    <div class="col-xl-4">
-                        <form style="margin-top: 8px;">
-                            <div class="form-group row">
-                                <label for="cp_heading" class="col-xl-4 col-form-label">Heading (Character
-                                    Name)</label>
-                                <div class="col-xl-8">
-                                    <input id="cp_heading" class="form-control" placeholder="Character Name">
-                                </div>
-                            </div>
 
+            <!--
                             <div class="form-group row">
-                                <label for="cp_update_color" class="col-xl-4 col-form-label">Update Color (Hex)</label>
-                                <div class="col-xl-8">
-                                    <input id="cp_update_color" class="form-control" placeholder="#800040">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-xl-4 col-form-label"></label>
-                                <div class="col-xl-8">
-                                    <input class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="cp_filler" class="col-xl-4 col-form-label">Filler</label>
-                                <div class="col-xl-8">
+                                <label for="cp_filler" class="col-lg-4 col-form-label">Filler</label>
+                                <div class="col-lg-8">
                                     <input id="cp_filler" class="form-control" placeholder="Filler">
                                 </div>
                             </div>
-                            <button id="get_char_profile" class="btn btn-primary" type="button">Get character profile</button>
-                        </form>
+
+                            <div class="form-group row">
+                                <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                <div class="col-lg-6">
+                                    <input id="cp_filler" class="form-control" placeholder="Filler">
+                                </div>
+                            </div>
+
+            -->
+
+            <div class="tab-pane" id="char_profile" role="tabpanel">
+                <form style="margin-top: 8px;">
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4>Basic Info</h4>
+                                <div class="form-group row">
+                                    <label for="cp_heading" class="col-lg-4 col-form-label">Heading (Character
+                                        Name)</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_heading" class="form-control" placeholder="Character Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_update_color" class="col-lg-4 col-form-label">Update Color
+                                        (Hex)</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_update_color" class="form-control" placeholder="#800040">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_update_color_name" class="col-lg-4 col-form-label">Update Color
+                                        Name</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_update_color_name" class="form-control" placeholder="Color Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_character_name" class="col-lg-4 col-form-label">Character
+                                        name</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_character_name" class="form-control" placeholder="Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_player_name" class="col-lg-4 col-form-label">Player Name</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_player_name" class="form-control" placeholder="Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_player_url" class="col-lg-4 col-form-label">Player Organizer
+                                        URL</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_player_url" class="form-control" placeholder="URL">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <h4>Character information</h4>
+
+                                <div class="form-group row">
+                                    <label for="cp_name" class="col-lg-4 col-form-label">Full name</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_name" class="form-control" placeholder="Full name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_race" class="col-lg-4 col-form-label">Race</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_race" class="form-control" placeholder="Race">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_age" class="col-lg-4 col-form-label">Age</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_age" class="form-control" placeholder="Age">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_gender" class="col-lg-4 col-form-label">Gender</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_gender" class="form-control" placeholder="Gender">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_sexuality" class="col-lg-4 col-form-label">Sexuality</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_sexuality" class="form-control" placeholder="Sexuality">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_alignment" class="col-lg-4 col-form-label">Alignment</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_alignment" class="form-control" placeholder="Alignment">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_deity" class="col-lg-4 col-form-label">Deity</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_deity" class="form-control" placeholder="Deity">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-12">
+                                <h4>Character Lifestyle</h4>
+
+                                <div class="form-group row">
+                                    <label for="cp_birthplace" class="col-lg-4 col-form-label">Place of Birth</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_birthplace" class="form-control" placeholder="Place of Birth">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_residence" class="col-lg-4 col-form-label">Current Residence</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_residence" class="form-control" placeholder="Current Residence">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_affiliations" class="col-lg-4 col-form-label">Affiliations</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_affiliations" class="form-control" placeholder="Affiliations">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_reputation" class="col-lg-4 col-form-label">Reputation</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_reputation" class="form-control" placeholder="Reputation">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_fir_prof" class="col-lg-4 col-form-label">Primary Profession</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_fir_prof" class="form-control" placeholder="Primary Profession">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_sec_prof" class="col-lg-4 col-form-label">Secondary
+                                        Profession</label>
+                                    <div class="col-lg-8">
+                                        <input id="cp_sec_prof" class="form-control" placeholder="Secondary Profession">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
-                </div>
+
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <h4>Character Traits</h4>
+                            <div class="form-group row">
+                                <label for="cp_1_pos" class="col-lg-4 col-form-label">#1 Positive + Desc.</label>
+                                <div class="col-lg-8">
+                                    <input id="cp_1_pos" class="form-control" placeholder="#1 Positive + Desc.">
+                                </div>
+                                <small>Separate label and description with <kbd>~</kbd></small>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cp_2_pos" class="col-lg-4 col-form-label">#2 Positive + Desc.</label>
+                                <div class="col-lg-8">
+                                    <input id="cp_2_pos" class="form-control" placeholder="#2 Positive + Desc.">
+                                </div>
+                                <small>Separate label and description with <kbd>~</kbd></small>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cp_3_pos" class="col-lg-4 col-form-label">#3 Positive + Desc.</label>
+                                <div class="col-lg-8">
+                                    <input id="cp_3_pos" class="form-control" placeholder="#3 Positive + Desc.">
+                                </div>
+                                <small>Separate label and description with <kbd>~</kbd></small>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cp_mixed_trait" class="col-lg-4 col-form-label">Mixed Trait + Desc.</label>
+                                <div class="col-lg-8">
+                                    <input id="cp_mixed_trait" class="form-control" placeholder="Mixed Trait + Desc.">
+                                </div>
+                                <small>Separate label and description with <kbd>~</kbd></small>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cp_1_neg" class="col-lg-4 col-form-label">#1 Negative + Desc.</label>
+                                <div class="col-lg-8">
+                                    <input id="cp_1_neg" class="form-control" placeholder="#1 Negative + Desc.">
+                                </div>
+                                <small>Separate label and description with <kbd>~</kbd></small>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="cp_2_neg" class="col-lg-4 col-form-label">#2 Negative + Desc.</label>
+                                <div class="col-lg-8">
+                                    <input id="cp_2_neg" class="form-control" placeholder="#2 Negative + Desc.">
+                                </div>
+                                <small>Separate label and description with <kbd>~</kbd></small>
+                            </div>
+                        </div>
+
+                            <div class="col-lg-12">
+                                <h4>Character Personality</h4>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h4>Character Linguistics</h4>
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4>Character Sociability</h4>
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4>Character Practical</h4>
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4>Character Education</h4>
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cp_filler" class="col-lg-6 col-form-label">Filler</label>
+                                    <div class="col-lg-6">
+                                        <input id="cp_filler" class="form-control" placeholder="Filler">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button id="get_char_profile" class="btn btn-primary" type="button" style="margin-bottom: 8px">Get character profile</button>
+                        </div>
+                    </div>
+
+
+                </form>
 
             </div>
         </div>
@@ -114,9 +503,10 @@
     <script src="static/js/dragscroll/dragscroll.js"></script>
     <script src="static/js/jsrender.min.js"></script>
 
-    <!-- Needs player_url, player_name, main_colour_code, main_colour_code_name, character_name-->
+    <!-- Needs heading, player_url, player_name, main_colour_code, main_colour_code_name
+    character_information, character_lifestyle, -->
     <script id="character-profile-template" type="text/x-jsrender">
-[richbox][googlefont=Belgrano][center][size=200]{{:character_name}}[/size]
+[richbox][googlefont=Belgrano][center][size=200]{{:heading}}[/size]
 a player character created by [url={{:player_url}}]{{:player_name}}[/url]
 updates in [color={{:main_colour_code}}]{{:main_colour_code_name}}[/color][/googlefont][/center]
 
