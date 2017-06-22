@@ -671,7 +671,14 @@
                                         <textarea id="cp_background" class="form-control" placeholder="Background"></textarea>
                                     </div>
                                 </div>
-                                <button id="get_char_profile" class="btn btn-primary" type="button" style="margin-bottom: 8px">Get character profile</button>
+                                <button id="get_char_profile" class="btn btn-primary" type="button"
+                                        style="margin-bottom: 8px" data-clipboard-target="#profile">Get character
+                                    profile</button>
+                                <small>Double click to copy</small>
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea class="form-control" id="profile" placeholder="Profile will come here"
+                                          style="width: 100%"></textarea>
                             </div>
 
 
@@ -823,6 +830,10 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
             return return_string
         }
 
+        function get_combo(combo_vals) {
+            return combo_vals.split(', ').join(' + ')
+        }
+
         $(document).ready( function (e) {
             new Clipboard('.btn');
 
@@ -928,8 +939,34 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
                     neg_2: $('#cp_2_neg').val().split('~'),
 
                     personality_desc: $('#cp_personality_desc').val(),
-                    lures:
+                    lures: get_combo($('#cp_lures').val()),
+                    deterrents: get_combo($('#cp_deterrents').val()),
+                    phobias: get_combo($('#cp_phobias').val()),
+                    strengths: get_combo($('#cp_strengths').val()),
+                    weaknesses: get_combo($('#cp_weaknesses').val()),
+                    fears: get_combo($('#cp_fears').val()),
+
+                    complexion: $('#cp_complexion').val(),
+                    height: $('#cp_height').val(),
+                    build: $('#cp_build').val(),
+                    eye_colour: $('#cp_eyes').val(),
+                    hair: $('#cp_hair').val(),
+                    disting: $('#cp_disting').val(),
+                    play_by: $('#cp_play_by').val(),
+
+                    posture: $('#cp_posture').val(),
+                    gait: $('#cp_gait').val(),
+                    mannerisms: $('#cp_mannerism').val(),
+                    dom_hand: $('#cp_hand').val(),
+
+                    scars: $('#cp_scars').val(),
+                    tattoos: $('#cp_tattoos').val(),
+                    diet: $('#cp_diet').val(),
+                    broken_bones: $('#cp_bones').val(),
+
+                    background: $('#cp_background')
                 });
+                $('#profile').val(text);
                 console.log(text)
             })
         });
