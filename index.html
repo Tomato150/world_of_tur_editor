@@ -95,14 +95,7 @@
                                 <div class="form-group row">
                                     <label for="cp_base_color" class="col-lg-4 col-form-label">Base Color (Hex)</label>
                                     <div class="col-lg-8">
-                                        <input id="cp_base_color" class="form-control" placeholder="#004080">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="cp_base_color_name" class="col-lg-4 col-form-label">Update Color Name</label>
-                                    <div class="col-lg-8">
-                                        <input id="cp_base_color_name" class="form-control" placeholder="Color Name">
+                                        <input id="cp_base_color" class="form-control" placeholder="#004080" value="#004080">
                                     </div>
                                 </div>
 
@@ -110,15 +103,14 @@
                                     <label for="cp_update_color" class="col-lg-4 col-form-label">Update Color
                                         (Hex)</label>
                                     <div class="col-lg-8">
-                                        <input id="cp_update_color" class="form-control" placeholder="#800040">
+                                        <input id="cp_update_color" class="form-control" placeholder="#800040" value="#800040">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="cp_update_color_name" class="col-lg-4 col-form-label">Update Color
-                                        Name</label>
+                                    <label for="cp_update_color_name" class="col-lg-4 col-form-label">Update Color Name</label>
                                     <div class="col-lg-8">
-                                        <input id="cp_update_color_name" class="form-control" placeholder="Color Name">
+                                        <input id="cp_update_color_name" class="form-control" placeholder="Color Name" value="Red">
                                     </div>
                                 </div>
 
@@ -714,12 +706,12 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 
 [center][boxhead]Character Information[/boxhead][/center]
 [box][block][label][color={{:hex}}]Name:[/color][/label] {{:character_name}}
- [label][color={{:hex}}]Race:[/color][/label] {{:race}}
- [label][color={{:hex}}]Age:[/color][/label] {{:age}}
- [label][color={{:hex}}]Gender:[/color][/label] {{:gender}}
- [label][color={{:hex}}]Sexuality:[/color][/label] {{:sexuality}}
- [label][color={{:hex}}]Alignment:[/color][/label] {{:alignment}}
- [label][color={{:hex}}]Deity:[/color][/label] {{:deity}}
+[label][color={{:hex}}]Race:[/color][/label] {{:race}}
+[label][color={{:hex}}]Age:[/color][/label] {{:age}}
+[label][color={{:hex}}]Gender:[/color][/label] {{:gender}}
+[label][color={{:hex}}]Sexuality:[/color][/label] {{:sexuality}}
+[label][color={{:hex}}]Alignment:[/color][/label] {{:alignment}}
+[label][color={{:hex}}]Deity:[/color][/label] {{:deity}}
 
 [label][color={{:hex}}]Current State:[/color][/label] {{:status}}
 [/block][/box]
@@ -738,7 +730,7 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 [stabs][stab=Languages][label][color={{:hex}}]Common:[/color][/label] {{:common}}
 [label][color={{:hex}}]Borysian:[/color][/label] {{:borysian}}
 [label][color={{:hex}}]Saurian:[/color][/label] {{:saurian}}
-[label][color={{:hex}}]Rugnosanti:[/color][/label] {{:Rugnosanti}}
+[label][color={{:hex}}]Rugnosanti:[/color][/label] {{:rugnosanti}}
 [label][color={{:hex}}]Dwarven:[/color][/label] {{:dwarven}}
 [label][color={{:hex}}]Elven:[/color][/label] {{:elven}}[/stab][stab=Sociability]
 [label][color={{:hex}}]Manipulation:[/color][/label] {{:manipulation}}
@@ -820,9 +812,17 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 
     <script>
         function get_dots(amount_wanted) {
+            if (amount_wanted = null) {
+                return '••••••••••'
+            }
             var remainder = 10 - amount_wanted;
-
+            var return_string = '[color=#FFFFFF]';
+            for (i=0; i < amount_wanted; i++) {return_string += '•'}
+            return_string += '[/color]';
+            for (i=0; i < remainder; i++) {return_string += '•'}
+            return return_string
         }
+
         $(document).ready( function (e) {
             new Clipboard('.btn');
 
@@ -869,7 +869,66 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 
             $(document).on('click', '#get_char_profile', function (e) {
                 var text = char_profile_template.render({
+                    heading: $('#cp_heading').val(),
+                    player_url: $('#cp_player_url').val(),
+                    player: $('#cp_player_name').val(),
+                    update_hex: $('#cp_update_color').val(),
+                    update_name: $('#cp_update_color_name').val(),
+                    hex: $('#cp_base_color').val(),
 
+                    character_name: $('#cp_character_name').val(),
+                    race: $('#cp_race').val(),
+                    age: $('#cp_age').val(),
+                    gender: $('#cp_gender').val(),
+                    sexuality: $('#cp_sexuality').val(),
+                    alignment: $('#cp_alignment').val(),
+                    deity: $('#cp_deity').val(),
+                    status: $('#cp_current_status').val(),
+
+                    birth: $('#cp_birthplace').val(),
+                    residence: $('#cp_residence').val(),
+                    affiliations: $('#cp_affiliations').val(),
+                    reputation: $('#cp_reputation').val(),
+                    primary_prof: $('#cp_fir_prof').val(),
+                    secondary_prof: $('#cp_sec_prof').val(),
+
+                    common: get_dots($('#cp_common').val()),
+                    borysian: get_dots($('#cp_borysian').val()),
+                    saurian: get_dots($('#cp_saurian').val()),
+                    rugnosanti: get_dots($('#cp_rugnosanti').val()),
+                    dwarven: get_dots($('#cp_dwarven').val()),
+                    elven: get_dots($('#cp_elven').val()),
+
+                    manipulation: get_dots($('#cp_manipulation').val()),
+                    persuasion: get_dots($('#cp_persuasion').val()),
+                    intimidation: get_dots($('#cp_intimidation').val()),
+                    flirtation: get_dots($('#cp_flirtation').val()),
+                    tactfulness: get_dots($('#cp_tactfulness').val()),
+                    finesse: get_dots($('#cp_finesse').val()),
+
+                    cooking: get_dots($('#cp_cooking').val()),
+                    navigation: get_dots($('#cp_navigation').val()),
+                    sleight: get_dots($('#cp_sleight_of_hand').val()),
+                    riding: get_dots($('#cp_riding').val()),
+                    stealth: get_dots($('#cp_stealth').val()),
+                    first_aid: get_dots($('#cp_first_aid').val()),
+
+                    mathematics: get_dots($('#cp_maths').val()),
+                    economics: get_dots($('#cp_econs').val()),
+                    sciences: get_dots($('#cp_sciences').val()),
+                    languages: get_dots($('#cp_languages').val()),
+                    statesmanship: get_dots($('#cp_statesman').val()),
+                    religious: get_dots($('#cp_religious').val()),
+
+                    pos_1: $('#cp_1_pos').val().split('~'),
+                    pos_2: $('#cp_2_pos').val().split('~'),
+                    pos_3: $('#cp_3_pos').val().split('~'),
+                    mixed: $('#cp_mixed_trait').val().split('~'),
+                    neg_1: $('#cp_1_neg').val().split('~'),
+                    neg_2: $('#cp_2_neg').val().split('~'),
+
+                    personality_desc: $('#cp_personality_desc').val(),
+                    lures:
                 });
                 console.log(text)
             })
