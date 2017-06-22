@@ -751,7 +751,7 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 [label][color={{:hex}}]Sleight of Hand:[/color][/label] {{:sleight}}
 [label][color={{:hex}}]Riding:[/color][/label] {{:riding}}
 [label][color={{:hex}}]Stealth:[/color][/label] {{:stealth}}
-[label][color={{:hex}}]First Aid:[/color][/label] {{:first_aid}}[stab=Education]
+[label][color={{:hex}}]First Aid:[/color][/label] {{:first_aid}}[/stab][stab=Education]
 [label][color={{:hex}}]Mathematics:[/color][/label] {{:mathematics}}
 [label][color={{:hex}}]Economics:[/color][/label] {{:economics}}
 [label][color={{:hex}}]Sciences:[/color][/label] {{:sciences}}
@@ -766,7 +766,8 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 [*][label][color={{:hex}}]{{:pos_1[0]}}[/color][/label] {{:pos_1[1]}}
 [*][label][color={{:hex}}]{{:pos_2[0]}}[/color][/label] {{:pos_2[1]}}
 [*][label][color={{:hex}}]{{:pos_3[0]}}[/color][/label] {{:pos_3[1]}}[/list]
-[label][color={{:hex}}]Mixed:[/color][label][/list]
+[label][color={{:hex}}]Mixed:[/color][/label]
+[list]
 [*][label][color={{:hex}}]{{:mixed[0]}}[/color][/label] {{:mixed[1]}}
 [/list]
 [label][color={{:hex}}]Negative:[/color][/label][list]
@@ -813,18 +814,19 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 [box][block]{{:background}}[/block][/box]
 
 [center][boxhead]Out of Character[/boxhead][/center]
-[box][block][label][color={{:hex}}]Player:[/color][/label] [url={{:player_url}}]{{:player_name}}[/url][/block][/box]
+[box][block][label][color={{:hex}}]Player:[/color][/label] [url={{:player_url}}]{{:player}}[/url][/block][/box]
 [/richbox]
     </script>
 
     <script>
         function get_dots(amount_wanted) {
-            if (amount_wanted = null) {
+            var amount_highlight = parseInt(amount_wanted);
+            if (amount_highlight === null) {
                 return '••••••••••'
             }
-            var remainder = 10 - amount_wanted;
+            var remainder = 10 - amount_highlight;
             var return_string = '[color=#FFFFFF]';
-            for (i=0; i < amount_wanted; i++) {return_string += '•'}
+            for (i=0; i < amount_highlight; i++) {return_string += '•'}
             return_string += '[/color]';
             for (i=0; i < remainder; i++) {return_string += '•'}
             return return_string
@@ -841,15 +843,15 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
             $(document).on('click', '#get_text', function (e) {
                 var inside_speech = false,
                     inside_thought = false,
-                    text_color = $('#text_color').val(),
-                    speech_marks = $('#speech_marks').val(),
-                    thought_marks = $('#thought_marks').val();
+                    text_color = $('#text_color').val().trim(),
+                    speech_marks = $('#speech_marks').val().trim(),
+                    thought_marks = $('#thought_marks').val().trim();
 
                 if (text_color === '') {text_color = '#0080CC'}
                 if (speech_marks === '') {speech_marks = '"'}
                 if (thought_marks === '') {thought_marks = ';'}
 
-                var raw_string = $('#text_input').val(),
+                var raw_string = $('#text_input').val().trim(),
                     new_string = '';
 
 
@@ -880,28 +882,28 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 
             $(document).on('click', '#get_char_profile', function (e) {
                 var text = char_profile_template.render({
-                    heading: $('#cp_heading').val(),
-                    player_url: $('#cp_player_url').val(),
-                    player: $('#cp_player_name').val(),
-                    update_hex: $('#cp_update_color').val(),
-                    update_name: $('#cp_update_color_name').val(),
-                    hex: $('#cp_base_color').val(),
+                    heading: $('#cp_heading').val().trim(),
+                    player_url: $('#cp_player_url').val().trim(),
+                    player: $('#cp_player_name').val().trim(),
+                    update_hex: $('#cp_update_color').val().trim(),
+                    update_name: $('#cp_update_color_name').val().trim(),
+                    hex: $('#cp_base_color').val().trim(),
 
-                    character_name: $('#cp_character_name').val(),
-                    race: $('#cp_race').val(),
-                    age: $('#cp_age').val(),
-                    gender: $('#cp_gender').val(),
-                    sexuality: $('#cp_sexuality').val(),
-                    alignment: $('#cp_alignment').val(),
-                    deity: $('#cp_deity').val(),
-                    status: $('#cp_current_status').val(),
+                    character_name: $('#cp_character_name').val().trim(),
+                    race: $('#cp_race').val().trim(),
+                    age: $('#cp_age').val().trim(),
+                    gender: $('#cp_gender').val().trim(),
+                    sexuality: $('#cp_sexuality').val().trim(),
+                    alignment: $('#cp_alignment').val().trim(),
+                    deity: $('#cp_deity').val().trim(),
+                    status: $('#cp_current_status').val().trim(),
 
-                    birth: $('#cp_birthplace').val(),
-                    residence: $('#cp_residence').val(),
-                    affiliations: $('#cp_affiliations').val(),
-                    reputation: $('#cp_reputation').val(),
-                    primary_prof: $('#cp_fir_prof').val(),
-                    secondary_prof: $('#cp_sec_prof').val(),
+                    birth: $('#cp_birthplace').val().trim(),
+                    residence: $('#cp_residence').val().trim(),
+                    affiliations: $('#cp_affiliations').val().trim(),
+                    reputation: $('#cp_reputation').val().trim(),
+                    primary_prof: $('#cp_fir_prof').val().trim(),
+                    secondary_prof: $('#cp_sec_prof').val().trim(),
 
                     common: get_dots($('#cp_common').val()),
                     borysian: get_dots($('#cp_borysian').val()),
@@ -931,14 +933,14 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
                     statesmanship: get_dots($('#cp_statesman').val()),
                     religious: get_dots($('#cp_religious').val()),
 
-                    pos_1: $('#cp_1_pos').val().split('~'),
-                    pos_2: $('#cp_2_pos').val().split('~'),
-                    pos_3: $('#cp_3_pos').val().split('~'),
-                    mixed: $('#cp_mixed_trait').val().split('~'),
-                    neg_1: $('#cp_1_neg').val().split('~'),
-                    neg_2: $('#cp_2_neg').val().split('~'),
+                    pos_1: $('#cp_1_pos').val().trim().split('~'),
+                    pos_2: $('#cp_2_pos').val().trim().split('~'),
+                    pos_3: $('#cp_3_pos').val().trim().split('~'),
+                    mixed: $('#cp_mixed_trait').val().trim().split('~'),
+                    neg_1: $('#cp_1_neg').val().trim().split('~'),
+                    neg_2: $('#cp_2_neg').val().trim().split('~'),
 
-                    personality_desc: $('#cp_personality_desc').val(),
+                    personality_desc: $('#cp_personality_desc').val().trim(),
                     lures: get_combo($('#cp_lures').val()),
                     deterrents: get_combo($('#cp_deterrents').val()),
                     phobias: get_combo($('#cp_phobias').val()),
@@ -946,25 +948,25 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
                     weaknesses: get_combo($('#cp_weaknesses').val()),
                     fears: get_combo($('#cp_fears').val()),
 
-                    complexion: $('#cp_complexion').val(),
-                    height: $('#cp_height').val(),
-                    build: $('#cp_build').val(),
-                    eye_colour: $('#cp_eyes').val(),
-                    hair: $('#cp_hair').val(),
-                    disting: $('#cp_disting').val(),
-                    play_by: $('#cp_play_by').val(),
+                    complexion: $('#cp_complexion').val().trim(),
+                    height: $('#cp_height').val().trim(),
+                    build: $('#cp_build').val().trim(),
+                    eye_colour: $('#cp_eyes').val().trim(),
+                    hair: $('#cp_hair').val().trim(),
+                    disting: $('#cp_disting').val().trim(),
+                    play_by: $('#cp_play_by').val().trim(),
 
-                    posture: $('#cp_posture').val(),
-                    gait: $('#cp_gait').val(),
-                    mannerisms: $('#cp_mannerism').val(),
-                    dom_hand: $('#cp_hand').val(),
+                    posture: $('#cp_posture').val().trim(),
+                    gait: $('#cp_gait').val().trim(),
+                    mannerisms: $('#cp_mannerism').val().trim(),
+                    dom_hand: $('#cp_hand').val().trim(),
 
-                    scars: $('#cp_scars').val(),
-                    tattoos: $('#cp_tattoos').val(),
-                    diet: $('#cp_diet').val(),
-                    broken_bones: $('#cp_bones').val(),
+                    scars: $('#cp_scars').val().trim(),
+                    tattoos: $('#cp_tattoos').val().trim(),
+                    diet: $('#cp_diet').val().trim(),
+                    broken_bones: $('#cp_bones').val().trim(),
 
-                    background: $('#cp_background')
+                    background: $('#cp_background').val().trim()
                 });
                 $('#profile').val(text);
                 console.log(text)
