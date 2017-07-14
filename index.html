@@ -35,6 +35,7 @@
                             <div class="form-group">
                                 <label for="text_input">Input RP post, raw.</label>
                                 <textarea class="form-control" id="text_input"></textarea>
+                                <small id="word_count">No Words</small>
                             </div>
                             <div class="form-group">
                                 <label for="text_color">Text Color</label>
@@ -851,6 +852,7 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
             new Clipboard('.btn');
 
             var char_profile_template = $.templates('#character-profile-template');
+
             $(document).on('click', '#get_text', function (e) {
                 var inside_speech = false,
                     inside_thought = false,
@@ -889,6 +891,10 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
                 }
 
                 $('#text_output').val(new_string);
+            });
+
+            $(document).on('keypress', '#text_input', function (e) {
+                $('#word_count').text($('#text_input').val().trim().split(' ').length)
             });
 
             $(document).on('click', '#get_char_profile', function (e) {
