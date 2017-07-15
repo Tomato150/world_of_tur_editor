@@ -894,7 +894,8 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
             });
 
             $(document).on('keypress', '#text_input', function (e) {
-                $('#word_count').text($('#text_input').val().trim().split(' ').length)
+                var text_input = $('#text_input').val().trim();
+                $('#word_count').text(text_input.split(' ').length + ' / ' + text_input.split().length()/121)
             });
 
             $(document).on('click', '#get_char_profile', function (e) {
