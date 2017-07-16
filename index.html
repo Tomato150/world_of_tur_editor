@@ -895,7 +895,16 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 
             $(document).on('keypress', '#text_input', function (e) {
                 var text_input = $('#text_input').val().trim();
-                $('#word_count').text(text_input.split(' ').length + ' / ' + text_input.split('').length/144 + ' / ' + text_input.split('').length/123)
+                var stringling = "";
+                var groups =text_input.split('\n\n');
+                for (var i = 0, len = groups.length; i < len; i++) {
+                    if (i !== 0) {
+                        stringling += ' / ' + groups[i].split('').length/123
+                    } else {
+                        stringling += groups[i].split('').length/123
+                    }
+                }
+                $('#word_count').text(text_input.split(' ').length + ' /// ' +  stringling)
             });
 
             $(document).on('click', '#get_char_profile', function (e) {
