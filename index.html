@@ -59,6 +59,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="tab-pane" id="manager" role="tabpanel">
                 <h2>A WIP</h2>
             </div>
@@ -676,6 +677,7 @@
                                     profile</button>
                                 <small>Double click to copy</small>
                             </div>
+
                             <div class="col-lg-12">
                                 <textarea class="form-control" id="profile" placeholder="Profile will come here"
                                           style="width: 100%"></textarea>
@@ -826,6 +828,10 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
     </script>
 
     <script>
+        var amount_of_pos = 1,
+            amount_of_mixed = 1,
+            amount_of_neg = 1;
+
         function get_dots(amount_wanted) {
             var amount_highlight = parseInt(amount_wanted);
             if (amount_highlight === null) {
@@ -865,6 +871,30 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
                 }
                 $('#word_count').text(text_input.trim().split(' ').length + ' /// ' +  stringling)
             }, 0.1);
+
+            $(document).on('click', '#add_pos', function (e) {
+
+            });
+
+            $(document).on('click', '#remove_pos', function (e) {
+
+            });
+
+            $(document).on('click', '#add_mixed', function (e) {
+
+            });
+
+            $(document).on('click', '#remove_mixed', function (e) {
+
+            });
+
+            $(document).on('click', '#add_neg', function (e) {
+
+            });
+
+            $(document).on('click', '#remove_neg', function (e) {
+
+            });
 
             $(document).on('click', '#get_text', function (e) {
                 var inside_speech = false,
