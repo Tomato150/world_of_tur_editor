@@ -258,51 +258,43 @@
                             <div class="col-lg-12">
                                 <h4>Character Traits</h4>
                                 <div class="form-group row">
-                                    <label for="cp_1_pos" class="col-lg-4 col-form-label">#1 Positive + Desc.</label>
+                                    <label for="cp_1_pos" class="col-lg-4 col-form-label">Positive + Desc.</label>
                                     <div class="col-lg-8">
                                         <input id="cp_1_pos" class="form-control" placeholder="#1 Positive + Desc.">
                                     </div>
-                                    <small>Separate label and description with <kbd>~</kbd></small>
+                                    <small>Separate label and description with <kbd>:</kbd></small>
                                 </div>
 
+                                <div class="block" style="margin-bottom: 16px">
+                                    <button type="button" id="add_pos" class="btn btn-primary">Add Positive Trait</button>
+                                    <button type="button" id="remove_pos" class="btn btn-danger">Remove Positive Trait</button>
+                                </div>
+
+
                                 <div class="form-group row">
-                                    <label for="cp_2_pos" class="col-lg-4 col-form-label">#2 Positive + Desc.</label>
+                                    <label for="cp_1_mixed" class="col-lg-4 col-form-label">Mixed + Desc.</label>
                                     <div class="col-lg-8">
-                                        <input id="cp_2_pos" class="form-control" placeholder="#2 Positive + Desc.">
+                                        <input id="cp_1_mixed" class="form-control" placeholder="Mixed Trait + Desc.">
                                     </div>
-                                    <small>Separate label and description with <kbd>~</kbd></small>
+                                    <small>Separate label and description with <kbd>:</kbd></small>
+                                </div>
+
+                                <div class="block" style="margin-bottom: 16px">
+                                    <button type="button" id="add_mixed" class="btn btn-primary">Add Mixed Trait</button>
+                                    <button type="button" id="remove_mixed" class="btn btn-danger">Remove Mixed Trait</button>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="cp_3_pos" class="col-lg-4 col-form-label">#3 Positive + Desc.</label>
-                                    <div class="col-lg-8">
-                                        <input id="cp_3_pos" class="form-control" placeholder="#3 Positive + Desc.">
-                                    </div>
-                                    <small>Separate label and description with <kbd>~</kbd></small>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="cp_mixed_trait" class="col-lg-4 col-form-label">Mixed Trait + Desc.</label>
-                                    <div class="col-lg-8">
-                                        <input id="cp_mixed_trait" class="form-control" placeholder="Mixed Trait + Desc.">
-                                    </div>
-                                    <small>Separate label and description with <kbd>~</kbd></small>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="cp_1_neg" class="col-lg-4 col-form-label">#1 Negative + Desc.</label>
+                                    <label for="cp_1_neg" class="col-lg-4 col-form-label">Negative + Desc.</label>
                                     <div class="col-lg-8">
                                         <input id="cp_1_neg" class="form-control" placeholder="#1 Negative + Desc.">
                                     </div>
-                                    <small>Separate label and description with <kbd>~</kbd></small>
+                                    <small>Separate label and description with <kbd>:</kbd></small>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="cp_2_neg" class="col-lg-4 col-form-label">#2 Negative + Desc.</label>
-                                    <div class="col-lg-8">
-                                        <input id="cp_2_neg" class="form-control" placeholder="#2 Negative + Desc.">
-                                    </div>
-                                    <small>Separate label and description with <kbd>~</kbd></small>
+                                <div class="block" style="margin-bottom: 16px">
+                                    <button type="button" id="add_neg" class="btn btn-primary">Add Negative Trait</button>
+                                    <button type="button" id="remove_neg" class="btn btn-danger">Remove Negative Trait</button>
                                 </div>
                             </div>
                         </div>
@@ -773,6 +765,9 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 [center][boxhead]Character Traits[/boxhead][/center]
 [box][block][label][color={{:hex}}]Positive:[/color][/label]
 [list]
+{{for pos_list}}
+[*][label][color={{:hex}}]{{:name}}[/color][/label] {{:desc}}
+{{/for}}
 [*][label][color={{:hex}}]{{:pos_1[0]}}[/color][/label] {{:pos_1[1]}}
 [*][label][color={{:hex}}]{{:pos_2[0]}}[/color][/label] {{:pos_2[1]}}
 [*][label][color={{:hex}}]{{:pos_3[0]}}[/color][/label] {{:pos_3[1]}}[/list]
@@ -846,6 +841,10 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 
         function get_combo(combo_vals) {
             return combo_vals.split(', ').join(' + ')
+        }
+
+        function get_pos_list() {
+            // TODO Make the bloody function
         }
 
         $(document).ready( function (e) {
@@ -961,12 +960,9 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
                     statesmanship: get_dots($('#cp_statesman').val()),
                     religious: get_dots($('#cp_religious').val()),
 
-                    pos_1: $('#cp_1_pos').val().trim().split('~'),
-                    pos_2: $('#cp_2_pos').val().trim().split('~'),
-                    pos_3: $('#cp_3_pos').val().trim().split('~'),
-                    mixed: $('#cp_mixed_trait').val().trim().split('~'),
-                    neg_1: $('#cp_1_neg').val().trim().split('~'),
-                    neg_2: $('#cp_2_neg').val().trim().split('~'),
+                    pos_list: get_pos_list(),
+                    mixed_1: $('#cp_1_mixed').val().trim().split(':'),
+                    neg_1: $('#cp_1_neg').val().trim().split(':'),
 
                     personality_desc: $('#cp_personality_desc').val().trim(),
                     lures: get_combo($('#cp_lures').val()),
