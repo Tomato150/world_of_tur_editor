@@ -853,6 +853,20 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
 
             var char_profile_template = $.templates('#character-profile-template');
 
+            setInterval(function (e) {
+                var text_input = $('#text_input').val();
+                var stringling = "";
+                var groups =text_input.split('\n\n');
+                for (var i = 0, len = groups.length; i < len; i++) {
+                    if (i !== 0) {
+                        stringling += ' / ' + groups[i].split('').length/123
+                    } else {
+                        stringling += groups[i].split('').length/123
+                    }
+                }
+                $('#word_count').text(text_input.trim().split(' ').length + ' /// ' +  stringling)
+            }, 0.1);
+
             $(document).on('click', '#get_text', function (e) {
                 var inside_speech = false,
                     inside_thought = false,
@@ -891,20 +905,6 @@ updates in [color={{:update_hex}}]{{:update_name}}[/color][/googlefont][/center]
                 }
 
                 $('#text_output').val(new_string);
-            });
-
-            $(document).on('keypress', '#text_input', function (e) {
-                var text_input = $('#text_input').val().trim();
-                var stringling = "";
-                var groups =text_input.split('\n\n');
-                for (var i = 0, len = groups.length; i < len; i++) {
-                    if (i !== 0) {
-                        stringling += ' / ' + groups[i].split('').length/123
-                    } else {
-                        stringling += groups[i].split('').length/123
-                    }
-                }
-                $('#word_count').text(text_input.split(' ').length + ' /// ' +  stringling)
             });
 
             $(document).on('click', '#get_char_profile', function (e) {
